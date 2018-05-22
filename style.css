@@ -4,6 +4,8 @@
 
 :root {
   --color-blue: hsl(187, 100%, 48%);
+  --color-green: #51A82A;
+  --color-yellow: #FFD306;
   --color-green: hsl(168, 100%, 38%);
   --color-purple: hsl(297, 100%, 31%);
   --color-red: hsl(335, 100%, 44%);
@@ -33,9 +35,44 @@
  }
 
 /* ==================
+ *  INDEX
+ * ================== */
+
+.index {
+  display: grid;
+  height: 90vh;
+  grid-template-rows: 100px 5fr;
+  grid-template-areas:
+    'header header'
+    'left right'
+}
+.header-container {
+  grid-area: header;
+  text-align: center;
+  font-size: 2em;
+}
+.es6-container {
+  grid-area: left;
+  background: var(--color-yellow);
+}
+.vue-container {
+  grid-area: right;
+  background: var(--color-green);
+}
+.container a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;;
+  color: white;
+  text-decoration: none;
+  font-size: 3em;
+}
+
+/* ==================
  *  CARD
  * ================== */
-main {
+.main {
   max-width: 600px;
   margin: 0 auto;
 }
