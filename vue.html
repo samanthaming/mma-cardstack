@@ -7,20 +7,50 @@
   <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
   <title>MMA Cardstack - Built using Vue</title>
 </head>
 <body>
-  <main>
+  <main id="app">
     <div class="container__card">
       <header>
         <h1>MMA Cardstack</h1>
         <p class="subtitle">Built using Vue</p>
       </header>
-      <section class="card-stack"></section>
+      <section class="card-stack">
+        <div v-for="{id, name, aka, division, open} in athletes"
+          :class="['card', `${id}`, {'is-open': open}]"
+          :key="id"
+        >
+          <div class="card__header" v-on:click="collapse(id)">
+            <figure class="card__image">
+              <img :src="`images/${id}.png`">
+            </figure>
+            <div class="card__info">
+              <h2>{{ name }}</h2>
+            </div>
+            <div class="card__action">
+              <i class="fa fa-chevron-down icon" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="card__body">
+            <ul>
+              <li>
+                <i class="fa fa-bolt" aria-hidden="true"></i>
+                <p>{{ aka }}</p>
+              </li>
+              <li>
+                <i class="fa fa-rocket" aria-hidden="true"></i>
+                <p>{{ division }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
-  <!-- Vanialla JavaScript -->
-  <script src="data.js"></script>
-  <script src="vue.js"></script>
+  <!-- JavaScript -->
+  <script src="scripts/data.js"></script>
+  <script src="scripts/vue.js"></script>
 </body>
 </html>

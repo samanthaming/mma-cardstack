@@ -10,8 +10,6 @@ const cards = data.map((athlete, index) => {
       </figure>
       <div class="card__info">
         <h2>${name}</h2>
-        <div class="card__detail">
-        </div>
       </div>
       <div class="card__action">
         <i class="fa fa-chevron-down icon" data-id="${id}" aria-hidden="true"></i>
