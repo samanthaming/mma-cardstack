@@ -1,0 +1,84 @@
+const data = [
+  {
+    id: 'ronda',
+    name: 'Ronda Rousey',
+    aka: 'Rowdy',
+    division: 'Bantamweight'
+  },
+  {
+    id: 'rose',
+    name: 'Rose Namajunas',
+    aka: 'Thug Rose',
+    divison: 'Strawweight'
+  },
+  {
+    id: 'holly',
+    name: 'Holly Holm',
+    aka: `The Preacher's Daughter`,
+    division: 'Featherweight '
+  },
+  {
+    id: 'joanna',
+    name: 'Joanna Jędrzejczyk',
+    aka: 'JJ',
+    division: 'Strawweight'
+  }
+]
+
+const cardStack = document.querySelector('.card-stack');
+
+const cards = data.map((athlete, index) => {
+  let {name, aka, division, id} = athlete;
+  return `
+  <div class="card ${id}">
+    <div class="card__header">
+      <figure class="card__image">
+        <img src="images/${id}.png">
+      </figure>
+      <div class="card__info">
+        <h2>${name}</h2>
+        <div class="card__detail">
+        </div>
+      </div>
+      <div class="card__action">
+        <i class="fa fa-chevron-down icon" data-id="${id}" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="card__body">
+      <ul>
+        <li>
+          <i class="fa fa-bolt" aria-hidden="true"></i>
+          <p>${aka}</p>
+        </li>
+        <li>
+          <i class="fa fa-rocket" aria-hidden="true"></i>
+          <p>${division}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  `
+}).join('');
+
+cardStack.innerHTML = cards;
+
+const icons = cardStack.querySelectorAll('.icon');
+
+const collapse = function(e) {
+  const id = e.target.dataset.id;
+  const container = cardStack.querySelector(`.${id}`);
+  closeOthers(id);
+  container.classList.toggle('is-open');
+}
+
+const closeOthers = (id) => {
+  const cards = cardStack.querySelectorAll(`.card:not(.${id})`);
+
+  cards.forEach(card => {
+    card.classList.remove('is-open');
+  });
+}
+
+icons.forEach((icon) => {
+  icon.addEventListener('click', collapse);
+});
