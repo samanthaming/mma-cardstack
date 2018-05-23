@@ -10,10 +10,10 @@ A simple dropdown card stack featuring my favorite MMA players. I wanted to try 
 
 ![Cardstack](images/cardstack.png)
 
-## Cardstack - Built using JavaScript
+## Built using JavaScript
 
 View code [here](scripts/es6.js)
 
-## Cardstack - Building using Vue
+## Built using Vue
 
 View code [here](scripts/vue.js)
