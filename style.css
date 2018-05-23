@@ -4,7 +4,7 @@
 
 :root {
   --color-blue: hsl(187, 100%, 48%);
-  --color-green: #51A82A;
+  --color-green-vue: #51A82A;
   --color-yellow: #FFD306;
   --color-green: hsl(168, 100%, 38%);
   --color-purple: hsl(297, 100%, 31%);
@@ -57,7 +57,7 @@
 }
 .vue-container {
   grid-area: right;
-  background: var(--color-green);
+  background: var(--color-green-vue);
 }
 .container a {
   height: 100%;
@@ -67,6 +67,24 @@
   color: white;
   text-decoration: none;
   font-size: 3em;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1;
+}
+
+/* ==================
+ *  BACK
+ * ================== */
+
+.back {
+  float: left;
+  color: #999;
+  text-decoration: none;
+  font-size: 2em;
+}
+
+.back:hover {
+  text-decoration: underline;
 }
 
 /* ==================
